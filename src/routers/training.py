@@ -26,6 +26,9 @@ async def get_training():
 
 @router.get('/single')
 async def get_one_training(training_id: int):
-  return await database.fetch_one(training.select().where( training.columns.id == training_id))
+  return await database.fetch_one(training.select().where( training.columns.id == training_id ))
 
-# TODO: Change the column exercises_id item_type to Array or similar in SQLite
+
+@router.get('/group')
+async def get_training_by_protocol(protocol_id: int):
+  return await database.fetch_all(training.select().where( training.columns.protocol_id == protocol_id ))

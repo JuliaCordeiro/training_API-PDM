@@ -1,6 +1,6 @@
 from fastapi import APIRouter
 from pydantic import BaseModel
-from src.database.database import database, relationships
+from src.database.database import database, relationships, exercises
 
 router = APIRouter(
     prefix='/relationships',
@@ -26,4 +26,9 @@ async def get_relationship():
 
 @router.get('/single')
 async def get_one_relationship(relationship_id: int):
-  return await database.fetch_one(relationships.select().where( relationships.columns.id == relationship_id))
+  return await database.fetch_one(relationships.select().where( relationships.columns.id == relationship_id ))
+
+
+@router.get('/group')
+async def get_relationship_by_training(training_id: int):
+  return await database.fetch_all(relationships.select().where( relationships.columns.training_id == training_id ))

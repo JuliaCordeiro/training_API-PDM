@@ -56,5 +56,3 @@ engine = sqlalchemy.create_engine(
 )
 
 metadata.create_all(engine)
-
-# TODO: Change the column item_type to Array or similar in SQLite

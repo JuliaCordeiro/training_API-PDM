@@ -23,3 +23,8 @@ async def register_exercises(exercise: Exercise):
 @router.get('/')
 async def get_exercises():
   return await database.fetch_all(exercises.select())
+
+
+@router.get('/single')
+async def get_one_exercise(exercise_id: int):
+  return await database.fetch_one(exercises.select().where( exercises.columns.id == exercise_id))

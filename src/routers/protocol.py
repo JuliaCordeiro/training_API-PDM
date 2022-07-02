@@ -23,4 +23,9 @@ async def register_protocol(prot: Protocol):
 async def get_protocol():
   return await database.fetch_all(protocol.select())
 
+
+@router.get('/single')
+async def get_one_protocol(protocol_id: int):
+  return await database.fetch_one(protocol.select().where( protocol.columns.id == protocol_id))
+
 # TODO: Change the column division item_type to Array or similar in SQLite

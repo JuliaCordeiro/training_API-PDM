@@ -15,8 +15,8 @@ class Exercise(BaseModel):
 
 
 @router.post('/new')
-async def register_tasks(exercise: Exercise):
-    last_record_id = await database.execute(exercise.insert().values(**exercise.dict()))
+async def register_exercises(exercise: Exercise):
+    last_record_id = await database.execute(exercises.insert().values(**exercise.dict()))
     return {**exercise.dict(), 'id': last_record_id}
 
 

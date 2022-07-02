@@ -32,16 +32,16 @@ protocol = sqlalchemy.Table(
     'protocol',
     metadata,
     sqlalchemy.Column('id', sqlalchemy.Integer, primary_key=True),
-    sqlalchemy.Column('user_id', sqlalchemy.Integer, sqlalchemy.ForeignKey('users.id')),
-    sqlalchemy.Column('divison', sqlalchemy.ARRAY)
+    sqlalchemy.Column('user_id', sqlalchemy.Integer),
+    sqlalchemy.Column('divison', sqlalchemy.Integer)
 )
 
 training = sqlalchemy.Table(
     'training',
     metadata,
     sqlalchemy.Column('id', sqlalchemy.Integer, primary_key=True),
-    sqlalchemy.Column('training_id', sqlalchemy.Integer, sqlalchemy.ForeignKey('protocol.id')),
-    sqlalchemy.Column('exercises_id', sqlalchemy.ARRAY, sqlalchemy.ForeignKey('exercises.id')),
+    sqlalchemy.Column('training_id', sqlalchemy.Integer),
+    sqlalchemy.Column('exercises_id', sqlalchemy.Integer),
     sqlalchemy.Column('muscle_group', sqlalchemy.Integer)
 )
 
@@ -50,3 +50,5 @@ engine = sqlalchemy.create_engine(
 )
 
 metadata.create_all(engine)
+
+# TODO: Change the column item_type to Array or similar in SQLite

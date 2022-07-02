@@ -10,7 +10,7 @@ router = APIRouter(
 
 class Protocol(BaseModel):
     user_id: int
-    division: int 
+    division: int
 
 
 @router.post('/new')

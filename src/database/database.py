@@ -33,7 +33,7 @@ protocol = sqlalchemy.Table(
     metadata,
     sqlalchemy.Column('id', sqlalchemy.Integer, primary_key=True),
     sqlalchemy.Column('user_id', sqlalchemy.Integer),
-    sqlalchemy.Column('divison', sqlalchemy.Integer)
+    sqlalchemy.Column('division', sqlalchemy.Integer)
 )
 
 training = sqlalchemy.Table(

@@ -15,5 +15,9 @@ TAGS_METADATA = [
     {
         'name': 'users',
         'description': 'Users operations'
+    },
+    {
+        'name': 'relationships',
+        'description': 'Relationships operations'
     }
 ]

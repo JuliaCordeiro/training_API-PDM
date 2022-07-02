@@ -32,17 +32,23 @@ protocol = sqlalchemy.Table(
     'protocol',
     metadata,
     sqlalchemy.Column('id', sqlalchemy.Integer, primary_key=True),
-    sqlalchemy.Column('user_id', sqlalchemy.Integer),
-    sqlalchemy.Column('division', sqlalchemy.Integer)
+    sqlalchemy.Column('user_id', sqlalchemy.Integer)
 )
 
 training = sqlalchemy.Table(
     'training',
     metadata,
     sqlalchemy.Column('id', sqlalchemy.Integer, primary_key=True),
-    sqlalchemy.Column('training_id', sqlalchemy.Integer),
-    sqlalchemy.Column('exercises_id', sqlalchemy.Integer),
+    sqlalchemy.Column('protocol_id', sqlalchemy.Integer),
     sqlalchemy.Column('muscle_group', sqlalchemy.Integer)
+)
+
+relationships = sqlalchemy.Table(
+    'relationships',
+    metadata,
+    sqlalchemy.Column('id', sqlalchemy.Integer, primary_key=True),
+    sqlalchemy.Column('exercise_id', sqlalchemy.Integer),
+    sqlalchemy.Column('training_id', sqlalchemy.Integer)
 )
 
 engine = sqlalchemy.create_engine(

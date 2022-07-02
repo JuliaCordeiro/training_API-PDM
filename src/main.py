@@ -1,7 +1,7 @@
 from fastapi import FastAPI
 from src.constants import TAGS_METADATA
 from src.database.database import database
-from src.routers import exercises, users, protocol, training
+from src.routers import exercises, users, protocol, training, relationships
 
 app = FastAPI(
     title='TrainingAPI',
@@ -13,6 +13,8 @@ app.include_router(exercises.router)
 app.include_router(users.router)
 app.include_router(protocol.router)
 app.include_router(training.router)
+app.include_router(relationships.router)
+
 
 @app.on_event('startup')
 async def startup():

@@ -9,8 +9,7 @@ router = APIRouter(
 
 
 class Training(BaseModel):
-    training_id: int
-    exercises_id: int
+    protocol_id: int
     muscle_group: int
 
 

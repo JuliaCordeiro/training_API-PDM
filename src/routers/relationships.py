@@ -33,6 +33,7 @@ async def get_one_relationship(relationship_id: int):
 async def get_relationship_by_training(training_id: int):
     return await database.fetch_all(relationships.select().where( relationships.columns.training_id == training_id ))
 
+
 @router.get('/exercises')
 async def get_exercises_by_training(training_id: int):
     relationships_by_training = await database.fetch_all(relationships.select().where( relationships.columns.training_id == training_id ))
